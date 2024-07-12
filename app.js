@@ -8,7 +8,7 @@ const { userRouter } = require("./router/user-route");
 connection();
 app.use(
   cors({
-    origin: ["https://myntra-clone-api-jade.vercel.app/"],
+    origin: ["https://myntra-frontend-tau.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true,
   })
