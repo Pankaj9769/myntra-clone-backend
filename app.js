@@ -11,6 +11,10 @@ app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 
+app.get("/", (req, res) => {
+  console.log("hello");
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on Port ${process.env.PORT}`);
 });
