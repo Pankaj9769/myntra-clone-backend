@@ -8,10 +8,7 @@ const { userRouter } = require("./router/user-route");
 connection();
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://myntra-frontend-tau.vercel.app/",
-    ],
+    origin: ["https://myntra-frontend-tau.vercel.app/"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
