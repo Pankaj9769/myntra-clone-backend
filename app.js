@@ -9,7 +9,7 @@ connection();
 app.use(
   cors({
     origin: ["https://myntra-frontend-tau.vercel.app/"],
-    methods: ["POST", "GET"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
