@@ -12,6 +12,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://myntra-frontend-c9345icmh-pankaj-parihars-projects.vercel.app",
+    "https://myntra-frontend-tau.vercel.app/",
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
