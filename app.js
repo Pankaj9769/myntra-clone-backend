@@ -18,7 +18,7 @@ app.use("/auth", authRouter);
 app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
-  console.log("hello");
+  res.json({ message: "hello" });
 });
 
 app.listen(process.env.PORT, () => {
