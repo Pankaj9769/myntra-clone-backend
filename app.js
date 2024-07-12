@@ -8,7 +8,7 @@ const { userRouter } = require("./router/user-route");
 connection();
 app.use(cors());
 app.use(express.json({
-  origin: ["https://myntra-backend-rho.vercel.app/"],
+  origin: ["https://myntra-backend-rho.vercel.app"],
   methods: ["POST","GET"],
   credentials:true
 }));
