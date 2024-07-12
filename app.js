@@ -5,6 +5,7 @@ const app = express();
 const { connection } = require("./connection");
 const { authRouter } = require("./router/auth-route");
 const { userRouter } = require("./router/user-route");
+const { productRouter } = require("./router/product-route");
 
 connection();
 
@@ -24,6 +25,7 @@ app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
+app.use("/products", productRouter);
 
 app.get("/", (req, res) => {
   res.json({ message: "hello" });
