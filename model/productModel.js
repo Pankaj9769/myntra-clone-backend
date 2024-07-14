@@ -17,6 +17,7 @@ const product_Schema = mongoose.Schema({
   description: {
     type: String,
   },
+  size: [{ type: String }],
   currPrice: {
     type: String,
   },
