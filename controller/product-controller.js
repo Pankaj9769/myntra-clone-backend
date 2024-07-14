@@ -28,11 +28,15 @@ const getAllProduct = async (req, res) => {
 };
 
 const removeAll = async () => {
-  const response = await productModel.deleteMany({});
-  if (response.ok) {
-    res.json({ message: "Deleted Successfully" });
+  try {
+    const response = await productModel.deleteMany({});
+    if (response.ok) {
+      res.json({ message: "Deleted Successfully" });
+    }
+    res.json({ message: "Error" });
+  } catch (error) {
+    res.json({ error });
   }
-  res.json({ message: "Error" });
 };
 
 module.exports = { addProduct, getAllProduct, removeAll };
