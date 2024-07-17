@@ -4,6 +4,7 @@ const {
   removeFromWishlist,
   removeFromBag,
   addInBag,
+  addAddress,
 } = require("../controller/auth-controller");
 const userRouter = express.Router();
 const { authMiddleware } = require("../middleware/authMiddleware");
@@ -15,5 +16,6 @@ userRouter
 
 userRouter.route("/bag/add/:id").post(authMiddleware, addInBag);
 userRouter.route("/bag/remove/:id").post(authMiddleware, removeFromBag);
+userRouter.route("/address/add").post(authMiddleware, addAddress);
 
 module.exports = { userRouter };

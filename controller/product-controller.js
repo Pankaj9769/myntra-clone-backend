@@ -9,7 +9,6 @@ const addProduct = async (req, res) => {
         console.log("added");
       }
     }
-    // res.json({ msg: "done" });
     res.status(200).json({ message: "Products added successfully" });
   } catch (error) {
     console.error("Error adding products:", error);

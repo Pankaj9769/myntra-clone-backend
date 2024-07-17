@@ -132,6 +132,29 @@ const removeFromBag = async (req, res) => {
   res.json({ response });
 };
 
+const addAddress = async (req, res) => {
+  const user = req.user;
+  const address = req.body;
+
+  try {
+    const findUser = await userModel.findOne({ email: user.email });
+    findUser.address.push(address);
+    const response = await userModel.findOneAndUpdate(
+      { email: user.email },
+      {
+        address: findUser.address,
+      },
+      {
+        new: true,
+      }
+    );
+
+    res.json({ response });
+  } catch (error) {
+    res.json({ error });
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -140,4 +163,5 @@ module.exports = {
   removeFromWishlist,
   addInBag,
   removeFromBag,
+  addAddress,
 };
