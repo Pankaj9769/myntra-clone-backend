@@ -155,6 +155,33 @@ const addAddress = async (req, res) => {
   }
 };
 
+const removeAddress = async (req, res) => {
+  const user = req.user;
+  const id = req.params.id;
+
+  try {
+    const findUser = await userModel.findOne({ email: user.email });
+
+    findUser.address = findUser.address.filter((address, index) => {
+      return Number(index) !== Number(id);
+    });
+    console.log("After->" + findUser.address.length);
+    const response = await userModel.findOneAndUpdate(
+      { email: user.email },
+      {
+        address: findUser.address,
+      },
+      {
+        new: true,
+      }
+    );
+
+    res.json({ response });
+  } catch (error) {
+    res.json({ error });
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -164,4 +191,5 @@ module.exports = {
   addInBag,
   removeFromBag,
   addAddress,
+  removeAddress,
 };
