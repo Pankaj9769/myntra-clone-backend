@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const { addressSchema } = require("./addressModel");
 const jwt = require("jsonwebtoken");
+const { orderSchema } = require("./orderModel");
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -19,7 +20,7 @@ const userSchema = mongoose.Schema(
     },
     bag: [],
     wishlist: [],
-    orders: [],
+    orders: [orderSchema],
     address: [addressSchema],
   },
   {
